@@ -1,0 +1,24 @@
+.App {
+    --header_height: 60px;
+}
+
+.hw {
+    display: flex;
+    width: 1280px;
+    padding: 131px 0px 216px 0px;
+    flex-direction: column;
+    align-items: normal;
+    flex-direction: column;
+    margin: 0 auto;
+    gap:40px;
+}
+
+.hwTitle {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+

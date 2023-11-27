@@ -1,0 +1,33 @@
+.sendForm {
+    display: flex;
+    gap: 40px;
+}
+
+.textarea {
+    flex: 1;
+    border-radius: 20px;
+    background: #F5F7FB;
+    box-shadow: 0px 1px 2px 0px rgba(29, 33, 38, 0.10), 0px 5px 20px 0px rgba(29, 33, 38, 0.03);
+    padding: 12px 24px;
+    border: none;
+}
+
+.button {
+    border-radius: 20px;
+    background: #06C;
+    color: white;
+    font-weight: 600;
+    padding: 12px 40px;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    position: relative;
+    opacity: 0.84;
+}
+.button:active {
+    position: relative;
+    top: 1px;
+    opacity: 0.9;
+}
