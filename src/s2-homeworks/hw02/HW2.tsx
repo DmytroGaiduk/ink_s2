@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Affairs from './affairs/Affairs'
 import s2 from '../../s1-main/App.module.css'
 
-export type AffairPriorityType = 'low' | 'high' | 'middle'// need to fix any
+export type AffairPriorityType = 'low' | 'high' | 'middle'
 
 export type AffairType = {
     _id: number
@@ -11,7 +11,6 @@ export type AffairType = {
 }
 
 export type FilterType = 'all' | AffairPriorityType
-
 
 const defaultAffairs: AffairType[] = [
     {_id: 1, name: 'React', priority: 'high'},
@@ -39,7 +38,7 @@ function HW2() {
     const filteredAffairs = filterAffairs(affairs, filter)
 
     const deleteAffairCallback = (_id: number) => {
-        const draftAffair = deleteAffair(filteredAffairs, _id);
+        const draftAffair = deleteAffair(affairs, _id);
         setAffairs(draftAffair);
     }
 
