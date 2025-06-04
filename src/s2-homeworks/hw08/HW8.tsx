@@ -5,13 +5,6 @@ import s2 from '../../s1-main/App.module.css';
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton';
 import User from './User';
 
-/*
-* 1 - дописать типы и логику 
-(сортировка по имени, фильтрация по совершеннолетию)
- homeWorkReducer, 
- проверить тестом
-* */
-
 export type UserType = {
   _id: number;
   name: string;
@@ -46,6 +39,8 @@ const HW8 = () => {
     setCurrentSort('down');
   };
   const check18 = () => {
+    setPeople([...initialPeople]);
+
     setPeople(homeWorkReducer(initialPeople, { type: 'check', payload: 18 })); // совершеннолетние
     setCurrentSort('18');
   };
