@@ -30,7 +30,7 @@ type ParamsType = {
 const getTechs = (params: ParamsType) => {
     return axios
         .get<{ techs: TechType[], totalCount: number }>(
-            'https://samurai.it-incubator.io/api/3.0/homework/test3',
+            'https://incubator-personal-page-back.herokuapp.com/api/3.0/homework/test3',
             {params}
         )
         .catch((e) => {
@@ -47,48 +47,54 @@ const HW15 = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
 
-    const sendQuery = (params: any) => {
+    const sendQuery = (params: ParamsType | { count: string; page: string }) => {
         setLoading(true)
-        getTechs(params)
+        getTechs(params as ParamsType)
             .then((res) => {
-                // делает студент
-
-                // сохранить пришедшие данные
-
-                //
+                if (res) {
+                    setTechs(res.data.techs)
+                    setTotalCount(res.data.totalCount)
+                }
             })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
-
-        // setPage(
-        // setCount(
+        console.log(count, page)
+        setPage(newPage)
+        setCount(newCount)
 
         // sendQuery(
+        sendQuery({page: newPage.toString(), count: newCount.toString()})
         // setSearchParams(
-
+        setSearchParams({page: newPage.toString(), count: newCount.toString()})
         //
     }
 
     const onChangeSort = (newSort: string) => {
         // делает студент
 
+
         // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
+        setSort(newSort)
+
+        setPage(1) // при сортировке сбрасывать на 1 страницу
+        searchParams.set("page", '1')
 
         // sendQuery(
+        sendQuery({count: count, page: 1, sort: newSort})
         // setSearchParams(
-
+        setSearchParams({page: page.toString(), count: count.toString()})
         //
     }
+
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
         sendQuery({page: params.page, count: params.count})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
-    }, [])
+    }, [searchParams])
 
     const mappedTechs = techs.map(t => (
         <div key={t.id} className={s.row}>
