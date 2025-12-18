@@ -1,67 +1,73 @@
 .friendMessage {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
 
 }
 
 .friendImageAndText {
     display: flex;
-    gap: 10px;
-    flex-direction: row;
+    gap: 20px;
 }
 
 .friendImageAndText img {
-    width: 48px;
     height: 48px;
-    margin-top: 10px;
-    border-radius: 48px;
+    align-self: end;
+
 }
 
 .friendText {
-    background-color: #f5f7fb;
-    filter: drop-shadow(0px 1px 2px rgba(29, 33, 38, 0.10)) drop-shadow(0px 5px 20px rgba(29, 33, 38, 0.03));
     color: black;
-    padding: 13px 20px;
-    border-color: #f5f7fb;
-    border-width: 2px 4px;
-    border-radius: 12px;
+    border: solid 0;
+    border-radius: 10px 10px 10px 0;
+    background-color: #DBDFE9;
+    padding: 8px 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+
+    box-shadow: 0px 5px 20px rgba(29, 33, 38, 0.03), 0px 1px 2px rgba(29, 33, 38, 0.1);
 }
 
 .friendText:after {
-    position: absolute;
     content: "";
+    position: absolute;
+    bottom: 0;
+    right: 100%;
+    display: block;
     width: 30px;
     height: 30px;
-    background-color: #f5f7fb;
-    display: block;
-    left: -15px;
-    bottom: 0px;
-    clip-path: polygon(100% 25%, 0 100%, 100% 100%);
+    background: radial-gradient(67px at top left, transparent 50%, #DBDFE9 51%) right bottom;
+
+
 }
 
 .friendName {
-    color: black;
-    font-family: Montserrat;
-    font-size: 18px;
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    line-height: normal;
+    font-size: 18px;
+    line-height: 22px;
+
 }
 
 .friendMessageText {
-    color: black;
-    font-family: Montserrat;
-    font-size: 16px;
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    font-size: 16px;
+    line-height: 20px;
 }
 
 .friendTime {
-    color: #000000;
-    font-family: Montserrat;
-    font-size: 10px;
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    line-height: normal;
-    margin: 0 12px;
-
+    font-size: 10px;
+    line-height: 12px;
+    color: #000000;
+    margin: 5px 0 0 12px;
 }
