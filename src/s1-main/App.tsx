@@ -6,7 +6,7 @@ import HW11 from "../s2-homeworks/hw11/HW11";
 function App() {
     return (
         <div className={s.App}>
-            <HW5/>
+
             <HW11/>
         </div>
     )
