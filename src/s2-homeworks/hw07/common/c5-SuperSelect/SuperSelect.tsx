@@ -1,17 +1,18 @@
 import React, {
     SelectHTMLAttributes,
     DetailedHTMLProps,
-    ChangeEvent, MouseEventHandler,
+    ChangeEvent,
 } from 'react'
 import s from './SuperSelect.module.css'
-import {themesType} from "../../../hw12/HW12";
 
-type DefaultSelectPropsType = DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>,
-    HTMLSelectElement>
+type DefaultSelectPropsType = DetailedHTMLProps<
+    SelectHTMLAttributes<HTMLSelectElement>,
+    HTMLSelectElement
+>
 
 type SuperSelectPropsType = DefaultSelectPropsType & {
-    options?: themesType
-    onChangeOption?: (option: number) => void
+    options?: any[]
+    onChangeOption?: (option: any) => void
 }
 
 const SuperSelect: React.FC<SuperSelectPropsType> = ({
@@ -35,8 +36,14 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
         : [] // map options with key
 
     const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {
-        if (onChangeOption) onChangeOption(parseInt(e.currentTarget.value))
-        if (onChange) onChange(e)
+
+        const value = e.currentTarget.value;
+        if (onChangeOption) {
+            onChangeOption(value);
+        }
+        if (onChange) {
+            onChange(e);
+        }
     }
 
     const finalSelectClassName = s.select + (className ? ' ' + className : '')
